@@ -1,0 +1,70 @@
+
+
+<?
+$t1=explode(";",substr($tag2_data['connect'],1,-1));
+
+$t1c=$tag1_sdata['caption'];
+?>
+
+<div class="polosa"><a href="/shop" title="Магазин"><img src="/design/icon/Shop_32x32.png" width="32" border="0" style="margin-bottom:-4px;" /></a> » <a href="../<?=$GLOBALS["tag1"]?>"><?=$t1c?></a> » <?=$tag2_data['caption']?></div>
+
+<div class="wrap_catalog">
+<?
+//$_SESSION['grid_list'] = "list";
+//$_SESSION['grid_list'] = "grid";
+?>
+<?if($_SESSION['user_level'] == "9"){?>
+<div style="float:right;padding-right:5px;">
+    <a href="/grid/" style=""><img src="/design/img/grid.png" style="width:30px" title="Сетка" alt="Сетка"></a>
+    <a href="/list/" style=""><img src="/design/img/list.png" style="width:30px" title="Список" alt="Список"></a>
+</div>
+<?}?>
+<div class="both"></div>
+<?if($item_list!=NULL){
+	foreach($item_list as $key=>$val){
+        
+		if(file_exists(SITE_PATH."/userfiles/product-image/".$val["1Cid"].".jpg")){
+		    $img1="/userfiles/product-image/".$val["1Cid"].".jpg";
+		}
+		else{
+		    $img1=SHOP_ITEM_IMG_PATH."/".$val["id"]."/1m.png";
+		}
+		
+		$a_href = "/".$GLOBALS["mod"]."/".$GLOBALS["tag1"]."/".$GLOBALS["tag2"]."/".$val["id"]."-".$val["seolink"];
+		$fancy =  "";
+		
+		$kod = $val["1Cid"];
+		$brand = $val["brand"];
+		
+		
+		if($val['good_price'] == 1){ // Наложение на изо надписи "Распродажа", "Хорошая цена" и т.д. 
+                    $wr_pr = "bestprice";  
+                    $pr = NOTE_GOOD_PRICE;  
+                }
+                else if($val['sell_out'] == 1){
+                    $wr_pr = "sale";  
+                    $pr = NOTE_SALE;
+                }
+                
+                if($_SESSION['grid_list'] == "grid"){
+                    $caption = trim($val["caption"]);
+                    $description = "";
+                }
+                else if($_SESSION['grid_list'] == "list"){
+                    $caption = trim($val["caption"]);
+                    $description = $val["desc_short"];
+                }
+                
+        if(!file_exists(getenv("DOCUMENT_ROOT").$img1))$img1="/design/img/noimage_740x480.png";
+?>	
+    
+        
+            <?include SITE_PATH."/site/inc/item-list-price_".$_SESSION['grid_list'].".tpl.htm";?>
+
+    
+<?    }
+}?>
+</div>
+
+<div class="both br_5"></div>
+<h1 style="font-size:18px;text-align:justify;padding:25px;"><?=$tag2_data['desc_full']?></h1>
