@@ -1,6 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0023)http://e-kirpich.in.ua/ -->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title><?=$meta["title"]?></title>
+<meta name="description" content="<?=$meta["description"]?>" />
+<meta name="keywords" content="<?=$meta["keywords"]?>" />
+<link media="all" href="/design/css/site-main.css" type="text/css" rel="stylesheet" />
 
 <link rel="stylesheet" href="/design/css/left_bootstrap.min.css">
 <!--<link rel="stylesheet" href="/design/css/left_bootstrap-theme.min.css">-->
@@ -570,91 +577,47 @@
 
 
 <!-- ****************************** RIGHT_COLUMN **************************** -->
-<div id="rightcolumn" class="col-xs-3 col-lg-2 visible-lg">
-						<div class="module">
-											<div class="junewsultra">
-		<div id="junews_article">
-        		    <div class="junews_title"><a href="http://e-kirpich.in.ua/articles/6-articles/771-chastnyiy-bunker-vo-dvore">Частный бункер во дворе</a></div>
-        
-        
-        <div class="small juinfo">
-                            </div>
+    <div id="rightcolumn" class="col-xs-3 col-lg-2 visible-lg">
+        <div class="module">
+	    <div class="junewsultra">
+<?$articles_list = Art::itemListShowLimit("5","4");  // Статьи?>
+<?
+if($articles_list !== ""){?>
+<a href="/art/article/stati"><h2>Статьи</h2></a>
+<?
+    foreach($articles_list as $a_k=>$a_v){
+?>
+               <div id="junews_article">
+                   <div class="junews_title"><a href="/art/article/stati/<?=$a_v['id']?>-<?=$a_v['caption']?>" style="cursor:point"><?=$a_v['caption']?></a></div>
+                   <div class="small juinfo"></div>
+                   <div class="junews_intro"><?=substr(strip_tags($a_v['desc_short']), 0, 200);?> ...</div>
+               </div>
+<?
+   }
 
-        
-                                      
+}
+?>
+<div style="clear:both;height:10px;"></div>
+<?$news_list = Art::itemListShowLimit("4","3");  // Новости?>
+<?
+if($news_list !== ""){?>
+<a href="/art/article/novosti"><h2>Новости</h2></a>
+<? 
+    foreach($news_list as $n_k=>$n_v){
+?>
+               <div id="junews_article">
+                   <div class="junews_title"><a href="/art/article/novosti/<?=$n_v['id']?>-<?=$n_v['caption']?>" style="cursor:point"><?=$n_v['caption']?></a></div>
+                   <div class="small juinfo"></div>
+                   <div class="junews_intro"><?=substr(strip_tags($n_v['desc_short']), 0, 200);?> ...</div>
+               </div>
+<?
+   }
 
-                    <div class="junews_intro">В наше время многие люди задумываются о постройке укрепленного помещения....</div>
-        
-        
-        		
-		</div>
-		<div id="junews_article">
-        		    <div class="junews_title"><a href="http://e-kirpich.in.ua/articles/6-articles/770-dom-s-dvorikom-na-kryishe-ploskaya-krovlya">Дом с двориком на крыше. Дом с плоской кровлей</a></div>
-        
-        
-        <div class="small juinfo">
-                            </div>
-
-        
-                                      
-
-                    <div class="junews_intro">Дом с плоской кровлей набирает все больше популярности среди людей,...</div>
-        
-        
-        		
-		</div>
-		<div id="junews_article">
-        		    <div class="junews_title"><a href="http://e-kirpich.in.ua/articles/6-articles/769-terrasa-ili-patio-konstruktsiya">Терраса или патио? Конструкция террасы</a></div>
-        
-        
-        <div class="small juinfo">
-                            </div>
-
-        
-                                      
-
-                    <div class="junews_intro">Красивая и хорошо обустроенная территория возле дома - любимое место,...</div>
-        
-        
-        		
-		</div>
-		<div id="junews_article">
-        		    <div class="junews_title"><a href="http://e-kirpich.in.ua/articles/articles-beton/768-vyibor-postavschika-betona-sposobyi-zalivki-proverka-konstruktsii">Выбор поставщика бетона. Способы заливки. Проверка конструкции</a></div>
-        
-        
-        <div class="small juinfo">
-                            </div>
-
-        
-                                      
-
-                    <div class="junews_intro">Бетон в основеФундамент являтся главным компонентом дома. Именно поэтому сейчас...</div>
-        
-        
-        		
-		</div>
-		<div id="junews_article">
-        		    <div class="junews_title"><a href="http://e-kirpich.in.ua/articles/6-articles/767-stenyi-iz-yacheistogo-betona-vidyi">Строим стены из ячеистого бетона. Виды блоков. Этапы работ</a></div>
-        
-        
-        <div class="small juinfo">
-                            </div>
-
-        
-                                      
-
-                    <div class="junews_intro">Не редко в строительной литературе можно встретить такие термины как...</div>
-        
-        
-        		
-</div>
-</div>
-</div>
-
-
-
-
-
+}
+?>
+            
+        </div>
+    </div>
 </div>
 <!-- ****************************** /RIGHT_COLUMN **************************** -->			
 		</div>

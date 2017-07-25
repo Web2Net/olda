@@ -261,6 +261,42 @@ function itemListShow($tag){ //Выборка всех видимых итемо
 
 }
 
+function itemListShowLimit($tag,$lim){ //Выборка всех видимых итемов (show) ограниченное кол-во
+
+    $query = "SELECT * FROM ".ART_ITEM_TABLE." 
+              LEFT JOIN ".ART_ITEM_TABLE_LANG." ON ".ART_ITEM_TABLE.".id=".ART_ITEM_TABLE_LANG.".pid 
+              WHERE `connect` LIKE '%;".$tag.";%' AND `show`='1' ORDER BY `pos` DESC LIMIT ".$lim."";
+    $res = mysql_query($query);
+    Mysql::queryError($res,$query);
+  //  $row = mysql_fetch_array($res);
+		if (mysql_num_rows($res) > 0)
+		{
+			while ($result = mysql_fetch_assoc ($res))
+			{
+				
+	$result["caption"]=stripslashes($result["caption"]);
+	$result["desc_short"]=stripslashes($result["desc_short"]);
+	$result["desc_full"]=stripslashes($result["desc_full"]);
+	$result["meta_t"]=stripslashes($result["meta_t"]);
+	$result["meta_d"]=stripslashes($result["meta_d"]);
+	$result["meta_k"]=stripslashes($result["meta_k"]);
+	
+				$itog[] = $result;
+			}
+		}
+
+		
+    if($itog!=NULL){
+        foreach($itog as $key=>$val){
+            $arrcat[$val["id"]]=$val;
+        }
+    }
+//SYS::varDump($arrcat,__FILE__,__LINE__,"ARRCAT");
+    return $arrcat;
+
+
+}
+
 function itemListShowHit($tag){ //Выборка всех видимых (show) итемов отмеченных полем (hit) 
 
     $query = "SELECT * FROM ".ART_ITEM_TABLE." 
