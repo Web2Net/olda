@@ -20,28 +20,29 @@ if(isset($seodata[2])){$tag1 = $seodata[2];}
 if(isset($seodata[3])){$tag2 = $seodata[3];}    
 if(isset($seodata[4])){$param = $seodata[4];}
 }
-
+/*
 if(isset($tag1) && $tag1=="best-proposition"){
-	
-$spec_where="on_main!=0 AND `show`='1'";
-$best_prop=Shop::itemListSpecial($spec_where);
-$tpl->assign('best_prop',$best_prop);
-$c_cont["content"].=$tpl->get("best-prop-full");
-
+    $spec_where="on_main!=0 AND `show`='1'";
+    $best_prop=Shop::itemListSpecial($spec_where);
+    $tpl->assign('best_prop',$best_prop);
+    $c_cont["content"].=$tpl->get("best-prop-full");
 }else if(isset($tag1) && $tag1=="quick-setting"){
-	
-$spec_where="connect LIKE '%;48;%' AND on_main!=0 AND `show`='1'";
-$quick_set=Shop::itemListSpecial($spec_where);
-$tpl->assign('quick_set',$quick_set);
-$c_cont["content"].=$tpl->get("quick-set-full");
-
+    $spec_where="connect LIKE '%;48;%' AND on_main!=0 AND `show`='1'";
+    $quick_set=Shop::itemListSpecial($spec_where);
+    $tpl->assign('quick_set',$quick_set);
+    $c_cont["content"].=$tpl->get("quick-set-full");
 }else{
-
-$spec_where="on_main!=0 AND `show`='1'";
-$best_prop=Shop::itemListSpecial($spec_where);
-$tpl->assign('best_prop',$best_prop);
-$c_cont["content"].=$tpl->get("best-prop");
+    $spec_where="on_main!=0 AND `show`='1'";
+    $best_prop=Shop::itemListSpecial($spec_where);
+    $tpl->assign('best_prop',$best_prop);
+    $c_cont["content"].=$tpl->get("best-prop");
 //SYS::varDump($best_prop,__FILE__,__LINE__,"best_prop");
+*/
+$spec_where="`level`= '0'";
+$special_tag_on_main=Shop::specialTagOnMain($spec_where);
+$tpl->assign('special_tag_on_main',$special_tag_on_main);
+$c_cont["content"].=$tpl->get("special-tag-on-main");
+SYS::varDump($special_tag_on_main,__FILE__,__LINE__,"special_tag_on_main");
 
 
 //$spec_where="connect LIKE '%;48;%' AND on_main!=0 AND `show`='1'";
@@ -51,10 +52,12 @@ $c_cont["content"].=$tpl->get("best-prop");
 //SYS::varDump($quick_set,__FILE__,__LINE__,"quick_set");
 
 //$spec_where="hit!=0 AND `show`='1'";
+/*
 $spec_where="`show`='1'";
 $gallery_top=Gallery::itemListSpecial($spec_where);
 $tpl->assign('gallery_top',$gallery_top);
 $c_cont["content"].=$tpl->get("gallery-top");
+*/
 //SYS::varDump($gallery_top,__FILE__,__LINE__,"gallery_top");
 
 //$branch_top=Gallery::tagListShowConnect(1);
@@ -68,7 +71,7 @@ $c_cont["content"].=$tpl->get("gallery-top");
 //$c_cont["content"].=$tpl->get("detail-top");
 //SYS::varDump($detail_top,__FILE__,__LINE__,"detail_top");
 
-}
+//}
 
 $c_cont["meta"]["title"]=META_T_DEFAULT;
 $c_cont["meta"]["description"]=META_D_DEFAULT;

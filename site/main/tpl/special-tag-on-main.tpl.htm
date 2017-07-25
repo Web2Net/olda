@@ -1,0 +1,36 @@
+<h2>Категории</h2>
+    <div class="row">
+<?
+$item_list=$special_tag_on_main;
+if($item_list!=NULL){?>
+<?foreach($item_list as $key=>$val){?>
+<?
+$img1=SHOP_TAG_IMG_PATH."/".$val["id"]."/1.png";
+if(!file_exists(getenv("DOCUMENT_ROOT").$img1))$img1="/design/img/noimage_740x480.png";
+$tag1_list=Shop::tagListShowLevel(1);
+$tag2_list=Shop::tagListShowLevel(2);
+
+?>
+
+    
+        <div class="mainitem">
+            <a href="/shop/<?=$val["seolink"]?>">
+                <img class="imagemain img-responsive" alt="<?=$val["caption"]?>" src="<?=$img1?>" height="120" width="120">
+            
+            <h2 style="height: 38px;"><?=$val["caption"]?></h2>
+            </a>
+<!--
+            <h2 style="height: 38px;"><?=$val["caption"]?></h2>
+            <ul class="subitems">
+                <li><a href="/shop/<?=$val2["seolink"]?>"><?=$val2["caption"]?></a></li>
+            </ul>
+-->
+        </div>
+  
+        
+
+    
+    
+<?}}?>
+
+</div>
