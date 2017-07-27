@@ -13,7 +13,7 @@ body{
     text-align: center;vertical-align: top;
     margin: 0 auto;
     background-color:#fff;
-    background: #fff url(/design/img/all-bg.jpg) center top no-repeat; 
+   /* background: #fff url(/design/img/all-bg.jpg) center top no-repeat; */
 }
 header{
     width:1020px; height:150px;

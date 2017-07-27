@@ -54,13 +54,18 @@ foreach($tag0_list as $key0=>$val0){?>
 	    <span style="color:<?=$val0['show']!=1?'orangered':'#365C90'?>;cursor:pointer;" onclick="Toggle(<?=$val0['id']?>)"><?=$val0['caption']?></span>
 
 <span style="float:right;padding-right:10px;">    
+
+
 		<nobr>
 		<a href="javascript:onSlimbox('?mod=<?=$mod?>&type=<?=$type?>&com=add&level=1&parent_tag=<?=$val0['id']?>&id=new')" title="<?=SHOP_ADMIN_BUTTON_ADD_NEW?>">
 <img src="/design/icon/Add_32x32.png" alt="<?=SHOP_ADMIN_BUTTON_ADD_NEW?>" border="0" width="20" ></a>
 <a href="javascript:onSlimbox('?mod=<?=$mod?>&type=<?=$type?>&com=edit&level=0&id=<?=$val0['id']?>')" title="<?=SHOP_ADMIN_NOTE_EDIT?>">
 <img src="design/ico_edit_sm.gif" alt="<?=SHOP_ADMIN_NOTE_EDIT?>" vspace="1" border="0" hspace="1"></a>&nbsp;
+<nobr>id:<b><?=$val0['id']?></b></nobr>
 <a title="<?=SHOP_ADMIN_BUTTON_DELETE?>" href="?mod=<?=$mod?>&type=<?=$type?>&com=delete&id=<?=$val0['id']?>" onclick="if (confirm('<?=SHOP_ADMIN_NOTE_ATTANTION_DELETE?> ?')) location=this.href; return false;">
 <img src="design/ico_delete_sm.gif" alt="Удалить" vspace="1" border="0" hspace="1"></a></nobr>
+
+
 </span>
 	</div>
 
@@ -94,11 +99,15 @@ foreach($tag0_list as $key0=>$val0){?>
 </nobr>
 </td>
 <td class="options" align="center" style="width:40px;">
-<nobr>
+<table cellpadding="0" cellspacing="0" style="width:50px;"><tr><td>
 <a href="javascript:onSlimbox('?mod=<?=$mod?>&type=<?=$type?>&com=edit&level=1&id=<?=$val['id']?>')" title="<?=SHOP_ADMIN_NOTE_EDIT?>">
-<img src="design/ico_edit_sm.gif" alt="<?=SHOP_ADMIN_NOTE_EDIT?>" vspace="1" border="0" hspace="1"></a>&nbsp;
+<img src="design/ico_edit_sm.gif" alt="Редактировать" vspace="1" border="0" hspace="1"></a>
+</td><td style="padding: 2px 1px 1px 12px;">
+<nobr>id:<b><?=$val['id']?></b></nobr>
+</td><td style="padding: 2px 3px 1px 1px;">
 <a title="<?=SHOP_ADMIN_BUTTON_DELETE?>" href="?mod=<?=$mod?>&type=<?=$type?>&com=delete&id=<?=$val['id']?>" onclick="if (confirm('<?=SHOP_ADMIN_NOTE_ATTANTION_DELETE?> ?')) location=this.href; return false;">
-<img src="design/ico_delete_sm.gif" alt="Удалить" vspace="1" border="0" hspace="1"></a></nobr>
+<img src="design/ico_delete_sm.gif" alt="Удалить" vspace="1" border="0" hspace="1"></a>
+</td></tr></table>
 </td>
 </tr>
 
@@ -128,11 +137,15 @@ $id=$_GET['id'];
 </nobr>
 </td>
 <td class="options" align="center">
-<nobr>
+<table cellpadding="0" cellspacing="0" style="width:50px;"><tr><td>
 <a href="javascript:onSlimbox('?mod=<?=$mod?>&type=<?=$type?>&com=edit&id=<?=$val2['id']?>')" title="<?=SHOP_ADMIN_NOTE_EDIT?>">
-<img src="design/ico_edit_sm.gif" alt="<?=SHOP_ADMIN_NOTE_EDIT?>" vspace="1" border="0" hspace="1"></a>&nbsp;
+<img src="design/ico_edit_sm.gif" alt="Редактировать" vspace="1" border="0" hspace="1"></a>
+</td><td style="padding: 2px 1px 1px 12px;">
+<nobr>id:<b><?=$val2['id']?></b></nobr>
+</td><td style="padding: 2px 3px 1px 1px;">
 <a title="<?=SHOP_ADMIN_BUTTON_DELETE?>" href="?mod=<?=$mod?>&type=<?=$type?>&com=delete&id=<?=$val2['id']?>" onclick="if (confirm('<?=SHOP_ADMIN_NOTE_ATTANTION_DELETE?> ?')) location=this.href; return false;">
-<img src="design/ico_delete_sm.gif" alt="<?=SHOP_ADMIN_BUTTON_DELETE?>" vspace="1" border="0" hspace="1"></a></nobr>
+<img src="design/ico_delete_sm.gif" alt="Удалить" vspace="1" border="0" hspace="1"></a>
+</td></tr></table>
 </td>
 </tr>
 <script>
