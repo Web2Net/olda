@@ -390,7 +390,7 @@ footer .menu_main{
 /* ********************************** */
 .wrap_catalog{
     padding:0px; margin:0 auto;
-    width:1020px; min-height:100px;
+/*    width:1020px; min-height:100px;   */
     text-align:center;
 	padding:5px;
 }

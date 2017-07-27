@@ -878,12 +878,11 @@ ul.tabber_tabs li { width: auto;}
 	line-height:30px;
 	padding:0 15px;
 	font-size: 14px;
-	font-family: Tahoma, Arial, Verdana, sans-serif;
+/*	font-family: Tahoma, Arial, Verdana, sans-serif;  */
 	color: #ffffff;
 	text-align: left;
 	text-transform:uppercase;
 	overflow:hidden;
-	background: transparent url(../images/box_h3_1.png) no-repeat top left;
 } 
 
 /*LEFT COL H3*/
@@ -1577,12 +1576,12 @@ div.junewsultra_news .left img {width: 96px; height: auto;}
 
 a.mainlevelbottommenu {padding: 8px;}
 
-/*Статьи слева*/
+/*Статьи*/
 div.junewsultra div#junews_article {
 	float: left;
 	width: 100%;
 	margin-bottom: 4px;
-	background-color: #f0ede7;
+	background-color: #fff;
 	border-radius: 7px;
 	moz-border-radius: 7px;
 }
