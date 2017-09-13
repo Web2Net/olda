@@ -948,9 +948,7 @@ a.mainlevel {
 	font-size: 12px;
 	line-height:22px;
 	color: #323232;
-	padding-left: 6px;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	padding: 3px 7px;
 	/*background-color: #e7e7e7;*/
 	background: transparent url(../images/mainmenu.png) repeat left;
 	border-left: 1px solid #c3c3c3;	
